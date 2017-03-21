@@ -3,13 +3,12 @@
 [![Release](https://jitpack.io/v/GoodieBag/Pinview.svg)](https://jitpack.io/#GoodieBag/Pinview)
 [![API](https://img.shields.io/badge/API-15%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=15)
 
- Pinview library for android :pouting_cat:
+ 针对Android的Pinview库 :pouting_cat:
  
 ![alt tag](https://media.giphy.com/media/U5BP5gk9zQaqs/giphy.gif)       ![alt_tag](https://media.giphy.com/media/CnCvLh9NT6Hio/giphy.gif)
 
-## Gradle Dependency
-
-Add this in your root build.gradle file at the end of repositories:
+## Gradle 依赖
+将其添加到存储库末尾的 root build.gradle 文件中:
 ```java
 allprojects {
 		repositories {
@@ -18,21 +17,21 @@ allprojects {
 		}
 	}
 ```
-Add the dependency : 
+添加依赖关系 : 
 ```java
 dependencies {
 	   compile 'com.github.GoodieBag:Pinview:v1.3'
 	}
 ```
-Sync the gradle and that's it! :+1:
+就这样同步 gradle:+1:
 
-### Features : 
- * Flawless focus change to the consecutive pin box when the text is entered/deleted.
- * When the user taps on the Pinview, the first empty box available is focused automatically (when the cursor is hidden).
- * Listeners for onDataEntered ( To call an API when the pin is entered) and touch exists.
- * Customisations are available for pin box sizes, background(drawables, selectors), inputType etc.
+### 特征 : 
+ * Flawless focus change to the consecutive pin box when the text is entered/deleted.//文本输入/删除时，无缝对焦更改为连续的针脚框。
+ * When the user taps on the Pinview, the first empty box available is focused automatically (when the cursor is hidden).//当用户点击Pinview时，可以自动对焦第一个空盒子（当光标被隐藏时）
+ * Listeners for onDataEntered ( To call an API when the pin is entered) and touch exists.//onDataEntered的侦听器（当输入引脚时调用API），触摸存在
+ * Customisations are available for pin box sizes, background(drawables, selectors), inputType etc.//定制可用于针盒尺寸，背景（可绘图，选择器），inputType等。
  
-## Usage
+## 用法
 
 ### XML : 
 ```xml
@@ -50,27 +49,27 @@ Sync the gradle and that's it! :+1:
         app:inputType="text"
         app:password="false"/>
 ```
-This can be referenced in the java class by the ```findViewById``` method.
+这可以通过```findViewById```方法在java类中引用
 
-##### Available xml attributes and explanations : 
+##### 可用的xml属性和解释 : 
 
-```app:pinBackground``` : Sets the pin box's background, accepts a drawable or a selector drawable. When a ```selector``` is used, the focused pin box is highlighted. <br />
-```app:pinWidth``` and ```app:pinHeight``` : Sets the width and height of the pinbox. <br />
-```app:pinLength``` : number of pin boxes to be displayed.<br />
-```app:forceKeyboard``` : forces the keyboard when the pinview is activity/fragment is opened.
-```app:cursorVisibility``` : Toggles cursor visibility.<br />
+```app:pinBackground``` : Sets the pin box's background, accepts a drawable or a selector drawable. When a ```selector``` is used, the focused pin box is highlighted. //设置pin box's的背景，接受可绘制或可选择的绘制。当使用```selector```时，会突出显示对焦的针框<br />
+```app:pinWidth``` and ```app:pinHeight``` : Sets the width and height of the pinbox.//设置pinbox的宽度和高度。 <br />
+```app:pinLength``` : number of pin boxes to be displayed.//要显示的pin boxes数<br />
+```app:forceKeyboard``` : forces the keyboard when the pinview is activity/fragment is opened.//当pinview是活动/片段被打开时强制键盘
+```app:cursorVisibility``` : Toggles cursor visibility.//切换光标可见性。<br />
 ```app:hint``` : Pin box hint. <br />
-```app:inputType``` : Accepts ```number``` or ```text``` as values. <br />
-```app:password``` : Masks the pin value with ```*``` when true. <br />
-```app:splitWidth``` : Determines the width between two pin boxes.
+```app:inputType``` : 接受 ```number``` 或 ```text``` 值. <br />
+```app:password``` : 当为正确时，pin value是```*```. <br />
+```app:splitWidth``` : Determines the width between two pin boxes//确定两个针盒之间的宽度.
 
 ### Java : 
 
-To create the view programmatically : 
+以编程方式创建视图 : 
 ```java
 Pinview pin = new Pinview(this);
 ```
-Or reference it from findViewById
+或者从findViewById引用它
 ```java
 pin = (Pinview) findViewById(R.id.pinview);
 pin.setPinBackgroundRes(R.drawable.sample_background);
@@ -80,9 +79,9 @@ pin.setInputType(Pinview.InputType.NUMBER);
 pin.setValue("1234");
 myLayout.addView(pin);    
 ```
-##### To get and set the pin values use the ```pin.getValue()``` and ```pin.setValue()``` methods respectively.
+##### To get and set the pin values use the ```pin.getValue()``` and ```pin.setValue()``` methods respectively.//获取并设置引脚值分别使用```pin.getValue（）``和```pin.setValue（）```方法。
 
-There is an event listener which is triggered when the user is done entering the otp which can be used as follows : 
+There is an event listener which is triggered when the user is done entering the otp which can be used as follows : //有一个事件监听器，当用户完成输入可以使用的otp时被触发
 ```java
 pinview.setPinViewEventListener(new Pinview.PinViewEventListener() {
             @Override
@@ -93,8 +92,7 @@ pinview.setPinViewEventListener(new Pinview.PinViewEventListener() {
         });
 ```
 #### Note : 
-This library cannot be assured to work on 3rd party keyboards (especially when the cursor is off). It works as expected on google keyboards.
-We will be adding a work-around in the future releases.
+此库不能放心使用第三方键盘（特别是当光标关闭时）。它的工作原理如谷歌键盘。 我们将在以后的版本中增加一些解决方案。
 
 ## LICENSE
 ```
